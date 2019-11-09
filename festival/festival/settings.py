@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'festival',
         'USER': 'festival',
         'PASSWORD': 'festival',
-        'HOST': 'database',
+        'HOST': 'localhost',
         'PORT': '5432',
     },
 
