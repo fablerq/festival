@@ -110,22 +110,22 @@ WSGI_APPLICATION = 'festival.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'database',
-    #     'USER': 'database_role',
-    #     'PASSWORD': 'database_password',
-    #     'HOST': 'database',
-    #     'PORT': '5432',
-    # },
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'festival4',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
+        'NAME': 'database',
+        'USER': 'database_role',
+        'PASSWORD': 'database_password',
+        'HOST': 'database',
         'PORT': '5432',
-    }
+    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'festival4',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'root',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
 }
 
 
