@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'festival.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'festival',
-        'USER': 'postgres',
-        'PASSWORD': 'root',
+        'NAME': 'database',
+        'USER': 'database_role',
+        'PASSWORD': 'database_password',
         'HOST': 'database',
         'PORT': '5432',
     },
