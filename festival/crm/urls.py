@@ -8,6 +8,7 @@ router = DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'profiles', ProfileViewSet)
 
+
 # The API URLs are now determined automatically by the router.
 urlpatterns = [
     path('', include(router.urls)),

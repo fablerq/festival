@@ -120,7 +120,7 @@ DATABASES = {
     # },
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'festival3',
+        'NAME': 'festival4',
         'USER': 'postgres',
         'PASSWORD': 'root',
         'HOST': 'localhost',
@@ -165,6 +165,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+AUTH_USER_MODEL = "crm.User"
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), 'static')
