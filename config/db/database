@@ -1,0 +1,3 @@
+POSTGRES_USER=database_role
+POSTGRES_PASSWORD=root
+POSTGRES_DB=festival
