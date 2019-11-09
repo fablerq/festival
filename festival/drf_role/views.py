@@ -16,7 +16,7 @@ def check_work(request):
     return Response({'key': 'value'}, status=status.HTTP_200_OK)
 
 class RoleView(generics.ListCreateAPIView):
-    permission_classes = (IsAdminOrNoAccess,)
+    #permission_classes = (IsAdminOrNoAccess,)
     serializer_class = RoleSerializer
     queryset = Role.objects.all()
 
