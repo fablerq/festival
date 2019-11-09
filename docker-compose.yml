@@ -44,6 +44,6 @@ networks:
     driver: bridge
 
 volumes:
-  database1_volume:
+  database_volume:
   static:
   media:
