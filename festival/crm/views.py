@@ -17,7 +17,6 @@ class ProfileViewSet(mixins.ListModelMixin,
                      mixins.UpdateModelMixin,
                      mixins.CreateModelMixin,
                      viewsets.GenericViewSet):
-    http_method_names = ['get', 'post']
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
