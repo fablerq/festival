@@ -1,23 +1,22 @@
 from rest_framework import serializers
-from .models import User, Profile
-#from drf_role.serializers import RoleSerializer
-#from django.contrib.auth.models import User
+from .models import *
 from drf_role.models import *
 from django.db import transaction
-from django.contrib.auth.hashers import PBKDF2PasswordHasher
 from django.contrib.auth.hashers import make_password, check_password
 
+class CoordinateSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Coordinate
+        depth = 1
+        fields = '__all__'
+
 class UserSerializer(serializers.ModelSerializer):
-    # url = serializers.HyperlinkedIdentityField(
-    #     view_name='role-detail',
-    #     lookup_field='role'
-    # )
 
     class Meta:
         model = User
         depth = 1
         fields = ('id', 'date_joined', 'last_login', 'email')
-
 
 
 class ProfileSerializer(serializers.ModelSerializer):

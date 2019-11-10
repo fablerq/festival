@@ -7,6 +7,7 @@ from . import views
 
 urlpatterns = [
     path('check/', views.check_work, name='check_work'),
+    path('profile/', views.profile, name='profile'),
     url(r'^roles/', RoleView.as_view()),
     url(r'^permissions/', PermissionView.as_view()),
     url(r'^accesses/', AccessControlView.as_view()),

@@ -9,11 +9,26 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import permissions
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from crm.models import Profile
+from django.core.serializers import serialize
+from django.core.serializers.json import DjangoJSONEncoder
+import json
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def profile(request):
+    user = Profile.objects.filter(email=request.user.email)
+    print(user)
+    str_data = serialize('json', user, cls=DjangoJSONEncoder)
+    return Response(json.loads(str_data), status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 @permission_classes([IsAdminOrNoAccess])
 def check_work(request):
-    return Response({'key': 'value'}, status=status.HTTP_200_OK)
+    return Response({'key': 'working fine'}, status=status.HTTP_200_OK)
+
+
 
 class RoleView(generics.ListCreateAPIView):
     #permission_classes = (IsAdminOrNoAccess,)
