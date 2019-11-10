@@ -34,6 +34,12 @@ def profile(request):
 def check_work(request):
     return Response({'key': 'working fine'}, status=status.HTTP_200_OK)
 
+# @api_view(['PUT'])
+# @permission_classes([IsAuthenticated])
+# def add_role(request):
+#     profile = Profile.objects.filter(email=request.user.email)
+#     return Response({'key': 'working fine'}, status=status.HTTP_200_OK)
+
 
 class RoleView(generics.ListCreateAPIView):
     #permission_classes = (IsAdminOrNoAccess,)

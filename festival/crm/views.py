@@ -23,15 +23,55 @@ class ProfileViewSet(mixins.ListModelMixin,
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
 
-@permission_classes([IsAuthenticated])
+#############################################
+#Coordinate
+#############################################
+
+#@permission_classes([IsAuthenticated])
 class CoordinateList(generics.ListCreateAPIView):
-  #  permission_classes = (IsAuthenticated,)
     queryset = Coordinate.objects.all()
     serializer_class = CoordinateSerializer
 
+#@permission_classes([IsAuthenticated])
 class CoordinateDetail(generics.RetrieveUpdateDestroyAPIView):
-   # permission_classes = (IsAuthenticated,)
     queryset = Coordinate.objects.all()
     serializer_class = CoordinateSerializer
 
+#############################################
+#Event
+#############################################
+#@permission_classes([IsAuthenticated])
+class EventList(generics.ListCreateAPIView):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
 
+#@permission_classes([IsAuthenticated])
+class EventDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
+
+#############################################
+#MapBorder
+#############################################
+#@permission_classes([IsAuthenticated])
+class MapBorderList(generics.ListCreateAPIView):
+    queryset = MapBorder.objects.all()
+    serializer_class = MapBorderSerializer
+
+#@permission_classes([IsAuthenticated])
+class MapBorderDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = MapBorder.objects.all()
+    serializer_class = MapBorderSerializer
+
+#############################################
+#EventTimetable
+#############################################
+#@permission_classes([IsAuthenticated])
+class EventTimetableList(generics.ListCreateAPIView):
+    queryset = EventTimetable.objects.all()
+    serializer_class = EventTimetableSerializer
+
+#@permission_classes([IsAuthenticated])
+class EventTimetableDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = EventTimetable.objects.all()
+    serializer_class = EventTimetableSerializer
