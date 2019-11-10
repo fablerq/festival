@@ -40,6 +40,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             found_role = Role.objects.filter(type=0).first()
             found_user = User.objects.filter(email=email).first()
             created_profile = Profile.objects.create(
+                password=hashed_pwd,
                 user = found_user,
                 role= found_role,
                 first_name=validated_data.pop('first_name'),
