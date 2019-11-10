@@ -24,6 +24,7 @@ class Profile(models.Model):
     last_name = models.CharField(max_length=255,default="Unknown")
     phone = models.CharField(max_length=255,default="Unknown")
     email = models.EmailField(unique=True, null=True)
+    password = models.CharField(max_length=255, default='qwerty')
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

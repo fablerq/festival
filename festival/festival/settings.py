@@ -69,6 +69,7 @@ REST_FRAMEWORK = {
     ),
 }
 
+
 JWT_AUTH = {
     # If the secret is wrong, it will raise a jwt.DecodeError telling you as such. You can still get at the payload by setting the JWT_VERIFY to False.
     'JWT_VERIFY': True,

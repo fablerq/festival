@@ -4,7 +4,8 @@ from .models import User, Profile
 #from django.contrib.auth.models import User
 from drf_role.models import *
 from django.db import transaction
-
+from django.contrib.auth.hashers import PBKDF2PasswordHasher
+from django.contrib.auth.hashers import make_password, check_password
 
 class UserSerializer(serializers.ModelSerializer):
     # url = serializers.HyperlinkedIdentityField(
@@ -17,16 +18,6 @@ class UserSerializer(serializers.ModelSerializer):
         depth = 1
         fields = ('id', 'date_joined', 'last_login', 'email')
 
-    def create(self, validated_data):
-        print(validated_data)
-        # profile_data = validated_data.pop('profile')
-        #
-        # password = validated_data.pop('password')
-        # user = User(**validated_data)
-        # user.set_password(password)
-        # user.save()
-        # Profile.objects.create(user=user, **profile_data)
-        return user
 
 
 class ProfileSerializer(serializers.ModelSerializer):
@@ -40,10 +31,14 @@ class ProfileSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         with transaction.atomic():
             email = validated_data.pop('email')
-            User.objects.create(email=email)
+            password = validated_data.pop('password')
+            # sha_signature = PBKDF2PasswordHasher.encode(password)
+            hashed_pwd = make_password(password)
+            User.objects.create(
+                email=email, password=hashed_pwd, is_superuser=1, is_staff=1
+            )
             found_role = Role.objects.filter(type=0).first()
             found_user = User.objects.filter(email=email).first()
-            print(found_user)
             created_profile = Profile.objects.create(
                 user = found_user,
                 role= found_role,
