@@ -11,6 +11,17 @@ class CoordinateSerializer(serializers.ModelSerializer):
         depth = 1
         fields = '__all__'
 
+    def create(self, validated_data):
+        user = self.context.get('request').user
+        print(user.id)
+        # User.objects.create(
+        #     longitude =
+        #     latitude =
+        #     time =
+        #     user_id =
+        # )
+        return validated_data
+
 class UserSerializer(serializers.ModelSerializer):
 
     class Meta:

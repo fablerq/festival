@@ -5,9 +5,7 @@ from .utils.url_utilities import get_urls
 from .models import Role, Permission, AccessControl
 from .permissions import *
 from .serializers import RoleSerializer, PermissionSerializer, AccessControlSerializer, AllViewListSerializer
-from django.http import JsonResponse
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework import permissions
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from crm.models import *
@@ -32,10 +30,9 @@ def profile(request):
     return Response(res, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
-@permission_classes([IsAdminOrNoAccess])
+@permission_classes([IsAuthenticated])
 def check_work(request):
     return Response({'key': 'working fine'}, status=status.HTTP_200_OK)
-
 
 
 class RoleView(generics.ListCreateAPIView):

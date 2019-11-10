@@ -33,7 +33,7 @@ class Coordinate(models.Model):
     longitude = models.CharField(max_length=100)
     latitude = models.CharField(max_length=100)
     time = models.DateTimeField(null=True)
-    user_id = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
+    user_id = models.IntegerField(null=True)
 
     def __str__(self):
         return f"{self.longitude} {self.latitude}, {self.time}"
