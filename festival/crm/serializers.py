@@ -3,6 +3,9 @@ from .models import *
 from drf_role.models import *
 from django.db import transaction
 from django.contrib.auth.hashers import make_password, check_password
+import datetime
+from django.http import JsonResponse
+
 
 class CoordinateSerializer(serializers.ModelSerializer):
 
@@ -13,14 +16,14 @@ class CoordinateSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = self.context.get('request').user
-        print(user.id)
-        # User.objects.create(
-        #     longitude =
-        #     latitude =
-        #     time =
-        #     user_id =
-        # )
-        return validated_data
+        Coordinate.objects.create(
+            longitude = self.data.get('longitude'),
+            latitude = self.data.get('latitude'),
+            time = datetime.datetime.now(),
+            user_id = user.id
+        )
+        return JsonResponse({'status':'Success'}, status=200)
+
 
 class UserSerializer(serializers.ModelSerializer):
 
